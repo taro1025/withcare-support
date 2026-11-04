@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://taro1025.github.io/withcare-support/sitemap.xml
+Sitemap: https://withcare.process-craft-ai.com/sitemap.xml
