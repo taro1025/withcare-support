@@ -21,7 +21,17 @@ const SITE = {
   baseUrl: "https://withcare.process-craft-ai.com",
 };
 const MARK = 'data-enhanced="1"';
-const STORE_CLICK = `<script>document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(!a||typeof gtag!=='function')return;var p=location.pathname.split('/');var i=p.indexOf('articles');gtag('event','store_click',{article_slug:i>=0&&p[i+1]?p[i+1].replace('.html',''):'',placement:a.getAttribute('data-placement')||'other',link_url:a.href});});</script>`;
+// GA4 はイベントを数秒ためてから送り、ページが隠れたときは送るが、同じタブで別のページへ移ると送らずに捨てる
+// （Mac・Android では拡張計測の離脱クリックも同じ理由で数えられない）。iPhone・iPad は App Store アプリに切り替わって
+// ページが隠れるだけなのでそのまま。それ以外は新しいタブで開いて、このページを残す（ポップアップが止められたら同じタブで移る）。
+const STORE_CLICK = `<script>${[
+  "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*=\"apps.apple.com\"]');if(!a||typeof gtag!=='function')return;",
+  "var p=location.pathname.split('/'),i=p.indexOf('articles');",
+  "gtag('event','store_click',{article_slug:i>=0&&p[i+1]?p[i+1].replace('.html',''):'',placement:a.getAttribute('data-placement')||'other',link_url:a.href});",
+  "var ios=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);",
+  "var plain=!e.defaultPrevented&&e.button===0&&!(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)&&(!a.target||a.target==='_self');",
+  "if(ios||!plain)return;var w=window.open(a.href,'_blank');if(w){w.opener=null;e.preventDefault();}});",
+].join("")}</script>`;
 
 export function main(root = process.cwd()) {
   const articles = readArticles(root);
@@ -141,10 +151,11 @@ ${items.join("\n")}
   return addStoreClick(html.replace(pattern, block));
 }
 
-/** GA4 のタグがあり、まだ入っていないページにだけ store_click の送信を足す */
+/** GA4 のタグがあるページに store_click の送信を入れる。古い版が入っていれば今の版に入れ替える */
 export function addStoreClick(html) {
-  if (!html.includes("googletagmanager.com/gtag/js") || html.includes("'store_click'")) return html;
-  return html.replace("</body>", `${STORE_CLICK}\n</body>`);
+  if (!html.includes("googletagmanager.com/gtag/js")) return html;
+  const cleaned = html.replace(/<script>document\.addEventListener\('click'[^<]*'store_click'[^<]*<\/script>\n?/g, "");
+  return cleaned.replace("</body>", `${STORE_CLICK}\n</body>`);
 }
 
 export function rewriteSitemap(root, xml, articles) {

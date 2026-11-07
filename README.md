@@ -18,6 +18,7 @@ aio-writer が公開のたびに書き直すため、リポジトリのファイ
   （キーワードの語が多く重なる順、同点なら新しい順）。末尾のボタンは `article_bottom`、ヘッダーのボタンは `header`。見た目は `articles/extra.css`
 - トップ: `index.html` の `<!-- latest-articles -->` 〜 `<!-- /latest-articles -->` を新しい記事 6 本で書き直す（公開のたびに作り直すので、手で直さなくてよい）
 - 全ページ: App Store へのリンク（`apps.apple.com`）が押されたら GA4 に `store_click` を送る。パラメータは `article_slug`・`placement`・`link_url`。`~/asc-insight` は記事ごとの App Store へのクリックをこのイベントで数える
+- GA4 はイベントを数秒ためてから送り、ページが隠れたときは送るが、同じタブで別のページへ移ると送らずに捨てる（2026-11-07 に GA4 のリアルタイムで確かめた）。そこで iPhone・iPad 以外では App Store へのリンクを新しいタブで開き、元のページを残す（ポップアップが止められたら同じタブで移る）。iPhone・iPad は App Store アプリに切り替わってページが隠れるだけなので、リンクの動きは変えていない
 - `sitemap.xml`: lastmod を記事の更新日に直す（トップと記事一覧はいちばん新しい記事の日付、ほかのページは git の最終コミット日）。aio-writer は全部を公開した日にしている
 - IndexNow の鍵ファイル `c65a37c56704841a81632679afb7bb9d.txt` をルートに置いている（中身は鍵の文字列だけ）
 

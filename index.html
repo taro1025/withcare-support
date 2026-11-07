@@ -100,6 +100,6 @@
     <a href="terms.html">利用規約</a>
     <a href="community.html">コミュニティガイドライン</a>
   </nav>
-</main><script>document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(!a||typeof gtag!=='function')return;var p=location.pathname.split('/');var i=p.indexOf('articles');gtag('event','store_click',{article_slug:i>=0&&p[i+1]?p[i+1].replace('.html',''):'',placement:a.getAttribute('data-placement')||'other',link_url:a.href});});</script>
+</main><script>document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(!a||typeof gtag!=='function')return;var p=location.pathname.split('/'),i=p.indexOf('articles');gtag('event','store_click',{article_slug:i>=0&&p[i+1]?p[i+1].replace('.html',''):'',placement:a.getAttribute('data-placement')||'other',link_url:a.href});var ios=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);var plain=!e.defaultPrevented&&e.button===0&&!(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)&&(!a.target||a.target==='_self');if(ios||!plain)return;var w=window.open(a.href,'_blank');if(w){w.opener=null;e.preventDefault();}});</script>
 </body>
 </html>
