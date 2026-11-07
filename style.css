@@ -82,3 +82,11 @@ nav a {
 .card h2 {
   margin-top: 0;
 }
+
+.latest-articles ul {
+  padding-left: 1.2em;
+}
+
+.latest-articles li {
+  margin: 8px 0;
+}
