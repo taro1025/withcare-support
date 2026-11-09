@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>(function(){try{if(/[?&]lang=ja(&|$)/.test(location.search)){localStorage.setItem('wc-lang','ja');return}if(localStorage.getItem('wc-lang')==='ja'||/bot|crawl|spider|slurp|preview/i.test(navigator.userAgent))return;var l=((navigator.languages&&navigator.languages[0])||navigator.language||'ja').toLowerCase();if(l.indexOf('ja')===0)return;location.replace('/'+(l.indexOf('de')===0?'de':'en')+location.pathname.replace(/^.*\//,'/')+location.hash)}catch(e){}})();</script>
   <title>プライバシーポリシー｜WithCare</title>
   <link rel="canonical" href="https://withcare.process-craft-ai.com/privacy.html">
+  <link rel="alternate" hreflang="ja" href="https://withcare.process-craft-ai.com/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://withcare.process-craft-ai.com/en/privacy.html">
+  <link rel="alternate" hreflang="de" href="https://withcare.process-craft-ai.com/de/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://withcare.process-craft-ai.com/en/privacy.html">
   <meta property="og:site_name" content="WithCare">
   <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -14,6 +19,11 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-JPVTMQNGNM',{allow_google_signals:false,allow_ad_personalization_signals:false});</script>
 </head>
 <body><main>
+  <nav class="lang-switch" aria-label="言語">
+    <a href="/privacy.html" aria-current="page">日本語</a>
+    <a href="/en/privacy.html" hreflang="en" lang="en">English</a>
+    <a href="/de/privacy.html" hreflang="de" lang="de">Deutsch</a>
+  </nav>
   <h1>プライバシーポリシー</h1>
   <p>WithCare運営者（以下「運営者」）は、周期・体調に関する情報の機微性を理解し、必要最小限のデータのみを取り扱います。</p>
 
@@ -25,21 +35,24 @@
       <li>共有情報: ペア連携情報、共有対象の記録、リアクション、通知イベント</li>
       <li>コミュニティ情報: ニックネーム、投稿、コメント、いいね、通報、ブロック</li>
       <li>技術情報: タイムゾーン、通知トークン、作成・更新日時、通信に必要なログ</li>
+      <li>購入情報: 見守るプランを購入した場合の購入状況・購入履歴（商品、日時、自動更新の状態）と、自動更新を止めたときに選んでいただいた理由。RevenueCat を通じてアカウントの識別子と結び付けて取得します。支払いは Apple が行い、カード情報は受け取りません。</li>
+      <li>位置情報: 許可した場合のみ、今いる場所の気圧を Apple の WeatherKit で調べるために、おおよその位置（約3km）を使います。保存するのは気圧だけで、位置は保存しません。</li>
       <li>アンケート回答: はじめての設定で任意に答えていただく、アプリを知ったきっかけ</li>
-      <li>利用状況の情報: はじめての設定のどの画面まで進んだか、購入画面の表示や購入の結果、パートナーとの連携や記録を行ったかといった操作の記録と、端末の種類、OSのバージョン、国・地域などの情報。Google Analytics for Firebase を使って取得します。広告IDは取得しません。周期・生理日・体調・症状・気分・メモなどの健康に関する情報、名前、メールアドレス、利用者が入力した文章は含みません。</li>
+      <li>利用状況の情報: はじめての設定のどの画面まで進んだか、購入画面の表示や購入の結果、パートナーとの連携や記録を行ったかといった操作の記録と、端末の種類、OSのバージョン、国・地域などの情報。Google Analytics for Firebase を使って取得します。広告IDは取得しません。周期・生理日・体調・症状・気分・メモなどの健康に関する情報、名前、メールアドレス、利用者が入力した文章は含みません。端末の地域を欧州経済領域（EEA）・英国・スイスの国にしている場合は取得しません。</li>
     </ul>
   </section>
 
   <section class="card">
     <h2>2. 利用目的</h2>
     <p>本人認証、周期予測と記録表示、本人が選んだパートナーへの共有、通知、コミュニティ提供、不正利用防止、問い合わせ対応、障害調査、サービス改善のために利用します。広告目的の販売や第三者広告には利用しません。</p>
+    <p>周期・生理日・体調・症状・気分・性交渉・服薬・検査結果・メモなどの健康に関する記録は、はじめての設定で取り扱いへの同意をいただいてから保存し、記録の表示、周期の予測、本人が連携したパートナーへの共有にだけ利用します。同意は、アカウントを削除することでいつでも撤回できます。</p>
     <p>利用状況の情報は、アプリを使いやすくするため（どの画面で操作が止まっているかの把握など）にだけ利用し、広告や個人の特定には利用しません。</p>
   </section>
 
   <section class="card">
     <h2>3. 共有と委託</h2>
     <p>周期・体調情報は、利用者がペア連携した相手に限り、アプリに示す範囲で共有されます。コミュニティ投稿はログイン済み利用者に公開されます。</p>
-    <p>認証、データ保存、通知、障害対応、利用状況の分析のため、AppleおよびGoogle Firebase（Google Analytics for Firebase を含む）を利用します。Google Analytics for Firebase の広告向けの機能（広告のパーソナライズ、広告IDの利用）は使っていません。各事業者には、本ポリシーおよび適用法令と同等以上の保護を求めます。法令に基づく場合を除き、本人の同意なくその他の第三者へ提供しません。</p>
+    <p>認証、データ保存、通知、障害対応、利用状況の分析、購入の管理のため、Apple、Google Firebase（Google Analytics for Firebase を含む）および RevenueCat を利用します。データは Google Cloud の東京リージョンに保存します。Google Analytics for Firebase の広告向けの機能（広告のパーソナライズ、広告IDの利用）は使っていません。各事業者には、本ポリシーおよび適用法令と同等以上の保護を求めます。法令に基づく場合を除き、本人の同意なくその他の第三者へ提供しません。</p>
     <p><strong>公式サイトのアクセス解析。</strong>このウェブサイト（withcare.process-craft-ai.com）では、ページや記事がどれだけ読まれているかを知るために、Google LLC の Google アナリティクスを使っています。Google アナリティクスは Cookie を使い、閲覧したページ、どのサイトや検索から来たか、端末とブラウザの種類、おおまかな地域（IP アドレスから推定されるもの）を集めます。氏名やメールアドレスなど個人を特定する情報は集めず、アプリの中の情報も送りません。Google シグナルと広告のパーソナライズは使っていません。集めた情報の扱いは <a href="https://policies.google.com/technologies/partner-sites">Google のポリシー</a>をご覧ください。収集を止めたいときは <a href="https://tools.google.com/dlpage/gaoptout">Google アナリティクス オプトアウト アドオン</a>を使えます。</p>
   </section>
 
@@ -54,10 +67,16 @@
   </section>
 
   <section class="card">
-    <h2>6. お問い合わせ</h2>
+    <h2>6. 欧州経済領域（EEA）・英国にお住まいの方へ</h2>
+    <p>EU一般データ保護規則（GDPR）・英国GDPRに基づく情報（管理者、法的根拠、提供先、国外への移転、保存期間、権利、監督機関への苦情の申し立て）は、<a href="/en/privacy.html" hreflang="en">英語版</a>・<a href="/de/privacy.html" hreflang="de">ドイツ語版</a>のプライバシーポリシーに記載しています。</p>
+  </section>
+
+  <section class="card">
+    <h2>7. お問い合わせ</h2>
+    <p>運営者: 崎野 倫太郎（屋号 Process Craft AI）／東京都中央区新川1丁目26-10 704</p>
     <p>開示・訂正・削除などのご相談は <a href="mailto:rintaro.sakino@process-craft-ai.com">rintaro.sakino@process-craft-ai.com</a> へご連絡ください。</p>
   </section>
-  <p class="muted">制定: 2026年8月31日 / 最終更新: 2026年10月1日</p>
+  <p class="muted">制定: 2026年8月31日 / 最終更新: 2026年11月9日</p>
   <p><a href="index.html">サポートトップへ戻る</a></p>
 </main><script>document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="apps.apple.com"]');if(!a||typeof gtag!=='function')return;var p=location.pathname.split('/'),i=p.indexOf('articles');gtag('event','store_click',{article_slug:i>=0&&p[i+1]?p[i+1].replace('.html',''):'',placement:a.getAttribute('data-placement')||'other',link_url:a.href});var ios=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);var plain=!e.defaultPrevented&&e.button===0&&!(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)&&(!a.target||a.target==='_self');if(ios||!plain)return;var w=window.open(a.href,'_blank');if(w){w.opener=null;e.preventDefault();}});</script>
 </body>

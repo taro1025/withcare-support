@@ -90,3 +90,26 @@ nav a {
 .latest-articles li {
   margin: 8px 0;
 }
+
+.lang-switch {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  font-size: 0.9rem;
+}
+
+.lang-switch a[aria-current="page"] {
+  color: #332c34;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.page-nav a {
+  display: inline-block;
+  margin: 0 14px 8px 0;
+}
+
+.card h3 {
+  margin: 18px 0 6px;
+  font-size: 1.02rem;
+}
