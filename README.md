@@ -41,11 +41,11 @@ aio-writer が公開のたびに書き直すため、リポジトリのファイ
 
 ## 生理の理解度テスト（`/test/`、2026-11-24）
 
-彼女がニックネームを入れてリンクを作り、彼氏に送る。彼氏はホント／ウソの 10 問に答え、1 問ごとに答え合わせ（出典つき）を見て、結果を LINE で彼女に返す。結果画面から App Store へ送る（`data-placement="test_result"`、彼女が開く側は `test_result_shared`）。
+彼女が 1 画面目からそのまま彼氏に送る（LINE・X・コピー。ニックネームの入力は 2026-11-24 に外した。手本のリカイドは「その人についてのクイズ」なので名前が要るが、このテストは全員同じ設問なので要らない）。彼氏はホント／ウソの 10 問に答え、1 問ごとに答え合わせ（出典つき）を見て、結果を LINE で彼女に返す。結果画面から App Store へ送る（`data-placement="test_result"`、彼女が開く側は `test_result_shared`）。
 
 - 流れと見た目はリカイド（rikaido.me）、設問の出し方はソフィ・美的の生理クイズを手本にした。調査は `~/WithCare/docs/research/2026-11-24_shindan/ui-research.md`
 - 設問・答え・出典・称号は `test/data.js`。事実は `~/WithCare/docs/research/2026-11-24_shindan/period-facts.md` で確かめたものだけを使う。設問を足す・直すときは出典を開いて確かめ、同じファイルに記録する
-- 画面の動きは `test/app.js`、見た目は `test/test.css`。名前（`?from=`）と結果（`?r=` に 10 桁の 0/1）は URL にだけ入り、サーバーには保存しない。`&me=1` は解いた本人の画面
-- GA4 のイベント: `test_create`（リンク作成）・`test_start`（`invited` 1=届いたリンクから）・`test_complete`（`score`）・`test_share`（`method` line/x/copy、`step` send/result）・`test_result_view`（彼女が結果を開いた）
+- 画面の動きは `test/app.js`、見た目は `test/test.css`。結果（`?r=` に 10 桁の 0/1）は URL にだけ入り、サーバーには保存しない。`?c=1` は彼女から届いたリンクの印、`&me=1` は解いた本人の画面。`?from=` は名前入りだったころのリンクのために読めるようにしてある
+- GA4 のイベント: `test_start`（`invited` 1=届いたリンクから）・`test_complete`（`score`）・`test_share`（`method` line/x/copy、`step` send/result）・`test_result_view`（彼女が結果を開いた）
 - OGP 画像は `python3 tools/test_ogp.py` で作り直す（`test/ogp.png`）
 - sitemap には aio-writer が `.html` を拾って自動で載せる
