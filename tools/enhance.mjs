@@ -8,7 +8,7 @@
  *
  * - 記事: 結論の下にアプリの紹介と App Store ボタン（article_top）、末尾に関連記事 3 本、ボタンに data-placement
  * - トップ（index.html）: <!-- latest-articles --> の間に新しい記事 6 本
- * - 全ページ: App Store へのリンクが押されたら GA4 に store_click を送る
+ * - 全ページ: WithCare の App Store へのリンクが押されたら GA4 に store_click を送る（比較記事に載せた他社のリンクは数えない）
  * - sitemap.xml: lastmod を記事の更新日（トップと一覧はいちばん新しい記事の日付、ほかは git の最終コミット日）にする
  */
 import { execFileSync } from "node:child_process";
@@ -25,7 +25,7 @@ const MARK = 'data-enhanced="1"';
 // （Mac・Android では拡張計測の離脱クリックも同じ理由で数えられない）。iPhone・iPad は App Store アプリに切り替わって
 // ページが隠れるだけなのでそのまま。それ以外は新しいタブで開いて、このページを残す（ポップアップが止められたら同じタブで移る）。
 const STORE_CLICK = `<script>${[
-  "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*=\"apps.apple.com\"]');if(!a||typeof gtag!=='function')return;",
+  "document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*=\"apps.apple.com\"][href*=\"id6807024261\"]');if(!a||typeof gtag!=='function')return;",
   "var p=location.pathname.split('/'),i=p.indexOf('articles');",
   "gtag('event','store_click',{article_slug:i>=0&&p[i+1]?p[i+1].replace('.html',''):'',placement:a.getAttribute('data-placement')||'other',link_url:a.href});",
   "var ios=/iP(hone|ad|od)/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);",
@@ -68,7 +68,7 @@ export function parseArticle(file, html) {
 
 export function enhanceArticle(article, all) {
   let html = article.html;
-  if (html.includes(MARK)) return html;
+  if (html.includes(MARK)) return addStoreClick(html);
   html = html.replace('<link rel="stylesheet" href="/articles/article.css">',
     '<link rel="stylesheet" href="/articles/article.css">\n  <link rel="stylesheet" href="/articles/extra.css">');
   html = html.replace('class="doc-header-cta"', 'class="doc-header-cta" data-placement="header"');
