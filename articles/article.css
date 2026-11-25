@@ -20,6 +20,7 @@ body {
   line-height: 1.9;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
 }
 a { color: var(--doc-accent-dark); }
 .doc-header {
